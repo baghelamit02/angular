@@ -1,0 +1,1 @@
+# angular initgit add angular.txt commit -m ravi commitgit branch -M maingit remote add origin https://github.com/baghelamit02/angular.gitgit push -u origin main
