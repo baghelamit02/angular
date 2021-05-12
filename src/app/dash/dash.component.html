@@ -5,26 +5,39 @@
     <!--Mini Cards-->
     <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout$ | async )?.miniCard?.cols"
       [rowspan]="( cardLayout$ | async )?.miniCard?.rows">
-      <app-card title="Card"><div>Mini Card Content Here</div></app-card>
+      <!-- <app-card title="Card"><div>Mini Card Content Here</div></app-card> -->
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>Today Active User</mat-card-title>
+          <mat-card-subtitle>Today: {{todayDate|date:'dd-MMM-yyyy'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
     </mat-grid-tile>
    <!--Charts-->
     <mat-grid-tile [colspan]="( cardLayout$ | async )?.chart?.cols" [rowspan]="( cardLayout$ | async )?.chart?.rows">
-      <app-card title="Monthly Revenue" [content]="monthlyRevenue">
+      <app-card title="Monthly Revenue" [content]="placeholder">
           <h1>Monthly Revenue</h1>>
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout$ | async )?.chart?.cols" [rowspan]="( cardLayout$ | async )?.chart?.rows">
-      <app-card title="Product Sales">
+      <app-card title="Product Sales" [content]="placeholderDonut">
         <h1>Product Sales</h1>>
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout$ | async )?.chart?.cols" [rowspan]="( cardLayout$ | async )?.chart?.rows">
-      <app-card title="Sales by Traffic Source">
+      <app-card title="Sales by Traffic Source" [content]="placeholderByTrafficSource">
          <h1>Sales by traffic source</h1>>
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout$ | async )?.chart?.cols" [rowspan]="( cardLayout$ | async )?.chart?.rows">
-      <app-card title="Online Store Sessions by Traffic Source">
+      <app-card title="Online Store Sessions by Traffic Source" [content]="placeHoldertraffic">
           <h1>Sales by traffic source</h1>
       </app-card>
     </mat-grid-tile>
