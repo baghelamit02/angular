@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppConfiguration } from './app-config';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'store-admin-panel';
+  ngOnInit(){
+    console.log(AppConfiguration.settings.name)
+  }
+  
 }

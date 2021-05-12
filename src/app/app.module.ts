@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { CardComponent } from './card/card.component';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AppConfiguration } from './app-config';
+export const initializeApp = (appconfig: AppConfiguration) => () => appconfig.load();
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,7 @@ import { CardComponent } from './card/card.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
+    HttpClientModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -40,7 +42,14 @@ import { CardComponent } from './card/card.component';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    AppConfiguration,
+    {
+    provide: APP_INITIALIZER,
+    useFactory: initializeApp,
+    multi: true,
+    deps: [AppConfiguration]
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
