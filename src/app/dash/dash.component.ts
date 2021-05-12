@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { of, Subscription } from 'rxjs';
+import { AppConfiguration } from '../app-config';
+import { IDashboardConfiguration } from './IDashBoardConfiguration';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-dash',
@@ -9,25 +11,28 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class DashComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return {
-          columns: 1,
-          miniCard: { cols: 1, rows: 1 },
-          chart: { cols: 1, rows: 2 },
-          table: { cols: 1, rows: 4 },
-        };
-      }
- 
-     return {
-        columns: 4,
-        miniCard: { cols: 1, rows: 1 },
-        chart: { cols: 2, rows: 2 },
-        table: { cols: 4, rows: 4 },
-      };
-    })
-  );
+  layoutArray: IDashboardConfiguration[] = [];
+  layoutMap: any;
+  constructor(private mediaObserver: MediaObserver) {
+    this.layoutArray = AppConfiguration.settings.dashBoardConfiguration;
+    this.layoutMap = new Map(this.layoutArray.map<[string, any]>(p => [p.name, p.configuration]));
+  }
+  miniCardData = [1, 2, 3, 4, 5, 6, 7, 8]
+  cardLayout$: any;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  watcher: Subscription;
+  activeMediaQuery = '';
+  monthlyRevenue="$20000";
+
+
+  ngOnInit() {
+
+    this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
+      this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : '';
+      this.cardLayout$ = of(this.layoutMap.get(change.mqAlias));
+      console.log(change.mqAlias);
+    });
+
+  }
+
 }
