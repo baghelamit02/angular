@@ -20,7 +20,7 @@ jobs:
         run: npm install
       # Runs a set of commands to build
       - name: Build
-        run: npm run build --prod
+        run: npm run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
