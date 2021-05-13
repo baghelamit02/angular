@@ -23,7 +23,7 @@ export class DashComponent {
   watcher: Subscription;
   activeMediaQuery = '';
   todayDate=new Date();
-  placeholder="http://www.austinclemens.com/Playfair/playfair_docs/assets/p1ex.png";
+  placeholder="assets/images/sample-chart.png";
   placeholderDonut="https://lh3.googleusercontent.com/ztbU9w1aYNWu8agShKYG4b-Aa1eh6CsLXuk59B2s9XuPaslLthiU7v0EoxLHbRAtFb0=w600-rwa";
   placeHoldertraffic="https://cdn2.hubspot.net/hub/2832391/hubfs/Reports/Analytics-Tools/Traffic-Analytics/analytics-chart.png?t=1567154279857&width=650&name=analytics-chart.png"
   placeholderByTrafficSource="https://www.klipfolio.com/sites/default/files/kpi_examples/web-traffic-sources_0.png";

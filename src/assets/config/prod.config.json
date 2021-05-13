@@ -1,3 +1,92 @@
 {
-    "name":"Ravi"
+    "name": "App V1.1",
+    "dashBoardConfiguration": [
+        {
+            "name": "xs",
+            "configuration": {
+                "columns": 2,
+                "miniCard": {
+                    "cols": 2,
+                    "rows": 1
+                },
+                "chart": {
+                    "cols": 2,
+                    "rows": 2
+                },
+                "newsTicker": {
+                    "cols": 2,
+                    "rows": 2
+                }
+            }
+        },
+        {
+            "name": "sm",
+            "configuration": {
+                "columns": 2,
+                "miniCard": {
+                    "cols": 2,
+                    "rows": 1
+                },
+                "chart": {
+                    "cols": 2,
+                    "rows": 2
+                },
+                "newsTicker": {
+                    "cols": 2,
+                    "rows": 2
+                }
+            }
+        },{
+            "name": "md",
+            "configuration": {
+                "columns": 4,
+                "miniCard": {
+                    "cols": 2,
+                    "rows": 1
+                },
+                "chart": {
+                    "cols": 2,
+                    "rows": 2
+                },
+                "newsTicker": {
+                    "cols": 2,
+                    "rows": 2
+                }
+            }
+        },{
+            "name": "lg",
+            "configuration": {
+                "columns": 4,
+                "miniCard": {
+                    "cols": 1,
+                    "rows": 1
+                },
+                "chart": {
+                    "cols": 2,
+                    "rows": 2
+                },
+                "newsTicker": {
+                    "cols": 2,
+                    "rows": 2
+                }
+            }
+        },{
+            "name": "xl",
+            "configuration": {
+                "columns": 4,
+                "miniCard": {
+                    "cols": 1,
+                    "rows": 1
+                },
+                "chart": {
+                    "cols": 2,
+                    "rows": 2
+                },
+                "newsTicker": {
+                    "cols": 2,
+                    "rows": 2
+                }
+            }
+        }
+    ]
 }
